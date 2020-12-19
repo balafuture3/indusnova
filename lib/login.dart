@@ -151,43 +151,46 @@ xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
               //   height: height/20,
               //
               // ),
-              new Container(
+              Padding(
+                padding: const EdgeInsets.only(top:24.0),
+                child: new Container(
 
-                decoration: BoxDecoration(
-                //     boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.grey,
-                //     offset: Offset(0.0, 1.0), //(x,y)
-                //     blurRadius: 6.0,
-                //   ),
-                // ],
-                    color: Colors.blue,borderRadius: BorderRadius.only(bottomRight: Radius.circular(80))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left:24.0),
-                      child: Image.asset('logo.png',width: width/2.8,),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0.0, 1.0), //(x,y)
+                      blurRadius: 6.0,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(child:SizedBox(width: width/3,),flex: 1,),
-                        Flexible(
-                          flex:1,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top:25),
-                            child: Text("Technologies Pvt Ltd",textAlign: TextAlign.end,style:TextStyle(color:Colors.white,fontWeight: FontWeight.w800,fontSize: 17) ,),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
-                ),
-                width: width,
-                height: height/3,
+                      color: Colors.blue,borderRadius: BorderRadius.only(bottomRight: Radius.circular(80))),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left:24.0),
+                        child: Image.asset('logo.png',width: width/2.8,),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(child:SizedBox(width: width/3,),flex: 1,),
+                          Flexible(
+                            flex:1,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top:25),
+                              child: Text("Technologies Pvt Ltd",textAlign: TextAlign.end,style:TextStyle(color:Colors.white,fontWeight: FontWeight.w800,fontSize: 17) ,),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  width: width,
+                  height: height/3.3,
 
+                ),
               ),
 
               SizedBox(

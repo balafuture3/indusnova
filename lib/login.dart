@@ -91,7 +91,7 @@ xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.SNACKBAR,
           timeInSecForIosWeb: 1,
-          backgroundColor: Colors.teal,
+          backgroundColor: Colors.blue,
           textColor: Colors.white,
           fontSize: 16.0
       );
@@ -143,111 +143,109 @@ xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 
 
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                // Container(
-                //   color: Colors.white,
-                //   height: height/20,
-                //
-                // ),
-                new Container(
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              // Container(
+              //   color: Colors.white,
+              //   height: height/20,
+              //
+              // ),
+              new Container(
 
-                  decoration: BoxDecoration( boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(0.0, 1.0), //(x,y)
-                      blurRadius: 6.0,
+                decoration: BoxDecoration(
+                //     boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.grey,
+                //     offset: Offset(0.0, 1.0), //(x,y)
+                //     blurRadius: 6.0,
+                //   ),
+                // ],
+                    color: Colors.blue,borderRadius: BorderRadius.only(bottomRight: Radius.circular(80))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left:24.0),
+                      child: Image.asset('logo.png',width: width/2.8,),
                     ),
-                  ], color: Colors.teal,borderRadius: BorderRadius.only(bottomRight: Radius.circular(80),topLeft: Radius.circular(80))),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-                      Padding(
-                        padding: const EdgeInsets.only(left:8.0),
-                        child: Image.asset('logo.png',width: width/2,),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(child:SizedBox(width: width/3,),flex: 1,),
-                          Flexible(
-                            flex:1,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top:25),
-                              child: Text("Technologies Pvt Ltd",textAlign: TextAlign.end,style:TextStyle(color:Colors.white,fontWeight: FontWeight.w800,fontSize: 17) ,),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  width: width,
-                  height: height/3,
-
-                ),
-
-                SizedBox(
-                  height: height/15,
-                ),
-                buildTextField("Email"),
-                SizedBox(
-                  height: height/50,
-                ),
-                buildTextField("Password"),
-
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right:24.0),
-                          child: InkWell(
-                            child: Container(
-                              padding:const EdgeInsets.all(16.0),
-                              child: Text("Forgot Password?"),
-                            ),
-                            onTap: (){
-
-                            },
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(child:SizedBox(width: width/3,),flex: 1,),
+                        Flexible(
+                          flex:1,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top:25),
+                            child: Text("Technologies Pvt Ltd",textAlign: TextAlign.end,style:TextStyle(color:Colors.white,fontWeight: FontWeight.w800,fontSize: 17) ,),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    )
+                  ],
                 ),
-                SizedBox(height: height/30,),
-                SizedBox(height: height/30,),
+                width: width,
+                height: height/3,
 
-                ButtonContainer(),
+              ),
 
+              SizedBox(
+                height: height/15,
+              ),
+              buildTextField("Email"),
+              SizedBox(
+                height: height/50,
+              ),
+              buildTextField("Password"),
 
-                SizedBox(
-                  height: height/30,
-                ),
-                Container(
-                  child: Center(
-                    child: InkWell(
-                      onTap: (){
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
 
                       },
-                      child: Container(
-                        padding:const EdgeInsets.all(16.0),
-                        child: Text("Create an Account",style: TextStyle(color: String_values.base_color,fontWeight: FontWeight.w600),),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right:24.0),
+                        child: InkWell(
+                          child: Container(
+                            padding:const EdgeInsets.all(16.0),
+                            child: Text("Forgot Password?"),
+                          ),
+                          onTap: (){
+
+                          },
+                        ),
                       ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: height/30,),
+              SizedBox(height: height/30,),
+
+              ButtonContainer(),
+
+
+              SizedBox(
+                height: height/30,
+              ),
+              Container(
+                child: Center(
+                  child: InkWell(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      padding:const EdgeInsets.all(16.0),
+                      child: Text("Create an Account",style: TextStyle(color: String_values.base_color,fontWeight: FontWeight.w600),),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -63,37 +63,24 @@ xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
       "username": emailController.text,
       "password": passwordController.text
     };
-    print("data: ${data}");
-    print(String_values.base_url);
+//    print("data: ${data}");
+//    print(String_values.base_url);
 
     var response = await http.post(url,
         headers: {
           "Content-Type": "text/xml; charset=utf-8",
-          //   'Authorization':
-          //       'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIiwidXR5cGUiOiJFTVAifQ.AhfTPvo5C_rCMIexbUd1u6SEoHkQCjt3I7DVDLwrzUs'
-          //
         },
         body: envelope);
     if (response.statusCode == 200) {
       setState(() {
         loading = false;
       });
-      print(response.statusCode);
-      print(response.body);
-      xml2Json.parse(response.body);
-      var jsonString = xml2Json.toParker();
-      li = Model.fromJson(json.decode(jsonString));
-      if (li.soapEnvelope.soapBody.indusMobileUserLogin1Response
-              .indusMobileUserLogin1Result !=
-          "[]") {
-        li2 = Model2.fromJson(json.decode(li.soapEnvelope.soapBody
-            .indusMobileUserLogin1Response.indusMobileUserLogin1Result
-            .substring(
-                1,
-                li.soapEnvelope.soapBody.indusMobileUserLogin1Response
-                        .indusMobileUserLogin1Result.length -
-                    1)));
-        print(li2.name);
+      xml.XmlDocument parsedXml = xml.XmlDocument.parse(response.body);
+      print(parsedXml.text);
+      final decoded = json.decode(parsedXml.text);
+      li2 = Model2.fromJson(decoded[0]);
+      print(li2.name);
+      if (li2.name != null) {
         Fluttertoast.showToast(
             msg:
                 "Name: ${li2.name}\nCode: ${li2.code}\nDepartment: ${li2.depratment}\nBranchCode: ${li2.branchCode}\nBranchName: ${li2.branchName}\nManagerID: ${li2.managerID}\nSuperUser: ${li2.superUser}\nWebIDSales: ${li2.webIDSales}\nImei: ${li2.imei}",
@@ -103,24 +90,6 @@ xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
             backgroundColor: Colors.blueAccent,
             textColor: Colors.white,
             fontSize: 16.0);
-        // print(json.encode(li.soapEnvelope.soapBody.indusMobileUserLogin1Response.indusMobileUserLogin1Result));
-        // print(li2.name);
-
-        //
-        // else
-        //   showDialog(context: context,child: AlertDialog(
-        //     backgroundColor:  String_values.base_color,
-        //     title: Text("Incorrect Login Details ",style: TextStyle(color: Colors.white),),
-        //     content: Text("Please check your username or email and password",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-        //     actions: <Widget>[
-        //       TextButton(
-        //         child: Text('OK',style: TextStyle(color: Colors.white)),
-        //         onPressed: () {
-        //           Navigator.of(context).pop();
-        //         },
-        //       ),
-        //     ],
-        //   ));
       } else
         Fluttertoast.showToast(
             msg: "Please check your login details,No users found",
